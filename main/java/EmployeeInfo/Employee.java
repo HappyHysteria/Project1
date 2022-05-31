@@ -1,3 +1,5 @@
+package EmployeeInfo;
+
 public class Employee {
     private String name;
     private String username;
@@ -44,7 +46,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return "EmployeeInfo.Employee{" +
                 "name='" + name + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +

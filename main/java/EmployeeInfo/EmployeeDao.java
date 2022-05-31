@@ -1,6 +1,7 @@
+package EmployeeInfo;
+
 import java.sql.SQLException;
 
-public interface Dao {
+public interface EmployeeDao {
     void login (Employee employee) throws SQLException;
-    void managerLogin (Manager manager) throws SQLException;
 }

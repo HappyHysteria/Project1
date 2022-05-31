@@ -1,22 +1,17 @@
-import java.sql.*;
+package ManagerInfo;
 
-public class DaoImplement implements Dao{
+import ConnectionInfo.ConnectionFactory;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class ManagerDaoImplement implements ManagerDao {
     Connection connection;
 
-    public DaoImplement(){
+    public ManagerDaoImplement(){
         this.connection = ConnectionFactory.getConnection();
-    }
-
-    @Override
-    public void login(Employee employee) throws SQLException {
-        String sql = "select * from employee where username = ? && password = ?";
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setString(1, employee.getUsername());
-        preparedStatement.setString(2, employee.getPassword());
-        ResultSet resultSet = preparedStatement.executeQuery();
-        if (resultSet.next()){
-
-        }
     }
 
     @Override

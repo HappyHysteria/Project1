@@ -1,3 +1,5 @@
+package ConnectionInfo;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -12,7 +14,7 @@ public class ConnectionFactory {
 
     public static Connection getConnection(){
         if (connection == null) {
-            ResourceBundle bundle = ResourceBundle.getBundle("com.revature/dbConfig");
+            ResourceBundle bundle = ResourceBundle.getBundle("dbConfig");
             String url = bundle.getString("url");
             String username = bundle.getString("username");
             String password = bundle.getString("password");

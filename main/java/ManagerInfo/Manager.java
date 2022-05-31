@@ -1,3 +1,5 @@
+package ManagerInfo;
+
 public class Manager {
     private String username;
     private String password;
@@ -27,7 +29,7 @@ public class Manager {
 
     @Override
     public String toString() {
-        return "Manager{" +
+        return "ManagerInfo.Manager{" +
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';

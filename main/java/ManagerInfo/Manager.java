@@ -1,6 +1,7 @@
 package ManagerInfo;
 
 public class Manager {
+    private int managerID;
     private String username;
     private String password;
 
@@ -8,10 +9,12 @@ public class Manager {
 
     }
 
-    public Manager(String username, String password){
+    public Manager(int managerID, String username, String password){
+        this.managerID = managerID;
         this.username = username;
         this.password = password;
     }
+
 
     public String getUsername() {
         return username;
@@ -27,10 +30,19 @@ public class Manager {
 
     public void setPassword(String password){ this.password = password; }
 
+    public int getManagerID() {
+        return managerID;
+    }
+
+    public void setManagerID(int managerID) {
+        this.managerID = managerID;
+    }
+
     @Override
     public String toString() {
-        return "ManagerInfo.Manager{" +
-                "username='" + username + '\'' +
+        return "Manager{" +
+                "managerID=" + managerID +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }

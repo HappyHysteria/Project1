@@ -1,6 +1,6 @@
 package EmployeeInfo;
 
-import ConnectionInfo.ConnectionFactory;
+import Connection.ConnectionFactory;
 import java.sql.*;
 
 public class EmployeeDaoImplement implements EmployeeDao {

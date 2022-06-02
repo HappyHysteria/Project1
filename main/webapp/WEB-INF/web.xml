@@ -4,6 +4,7 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
    <servlet>
     <servlet-name>employeelogin</servlet-name>
     <servlet-class>Servlets.EmployeeLogin</servlet-class>
@@ -30,4 +31,15 @@
     <servlet-name>employeeprofile</servlet-name>
     <url-pattern>/eprofile</url-pattern>
   </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>managerLogin</servlet-name>
+    <servlet-class>Servlets.ManagerLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>managerLogin</servlet-name>
+    <url-pattern>/mLogin</url-pattern>
+  </servlet-mapping>
+
 </web-app>

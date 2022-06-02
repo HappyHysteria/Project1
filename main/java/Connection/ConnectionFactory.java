@@ -1,4 +1,4 @@
-package ConnectionInfo;
+package Connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,6 +13,13 @@ public class ConnectionFactory {
     }
 
     public static Connection getConnection(){
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
         if (connection == null) {
             ResourceBundle bundle = ResourceBundle.getBundle("dbConfig");
             String url = bundle.getString("url");

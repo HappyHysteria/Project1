@@ -1,6 +1,6 @@
 package ManagerInfo;
 
-import ConnectionInfo.ConnectionFactory;
+import Connection.ConnectionFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,14 +15,18 @@ public class ManagerDaoImplement implements ManagerDao {
     }
 
     @Override
-    public void managerLogin(Manager manager) throws SQLException {
-        String sql = "select * from manager where username = ? && password = ?";
+    public boolean managerLogin(Manager manager) throws SQLException {
+        String sql = "select username, password from manager where exists (select username, password from manager where username = ? and password = ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, manager.getUsername());
         preparedStatement.setString(2, manager.getPassword());
         ResultSet resultSet = preparedStatement.executeQuery();
-        if (resultSet.next()){
-
+        if (resultSet.next() == true){
+            System.out.println("Login Successful");
+            return true;
+        }else{
+            System.out.println("Login Failed");
+            return false;
         }
     }
 }

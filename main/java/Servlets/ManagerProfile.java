@@ -12,7 +12,7 @@ public class ManagerProfile extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         request.getRequestDispatcher("nav.html").include(request, response);
-        request.getRequestDispatcher("managerprofile.html").include(request, response);
+        request.getRequestDispatcher("managerReimbursement.html").include(request, response);
 
         Cookie[] cookies = request.getCookies();
         String username = cookies[0].getValue();

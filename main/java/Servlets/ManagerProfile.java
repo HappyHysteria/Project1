@@ -11,14 +11,22 @@ public class ManagerProfile extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        request.getRequestDispatcher("nav.html").include(request, response);
-        request.getRequestDispatcher("managerReimbursement.html").include(request, response);
+
+
 
         Cookie[] cookies = request.getCookies();
-        String username = cookies[0].getValue();
+        if (cookies != null){
+            String username = cookies[0].getValue();
+            if (!username.equals("")){
+                out.println("<h1>Welcome to the Manager Homepage</h1>");
+                request.getRequestDispatcher("managerNav.html").include(request, response);
+            }else {
+                out.println("please login first");
+                request.getRequestDispatcher("/index.html").include(request, response);
+            }
+        }
 
-        HttpSession session = request.getSession();
-        session.setAttribute("username", username);
+
 
         out.close();
     }

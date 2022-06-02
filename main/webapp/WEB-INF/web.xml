@@ -6,11 +6,11 @@
   <display-name>Archetype Created Web Application</display-name>
 
    <servlet>
-    <servlet-name>employeelogin</servlet-name>
+    <servlet-name>employeeLogin</servlet-name>
     <servlet-class>Servlets.EmployeeLogin</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>employeelogin</servlet-name>
+    <servlet-name>employeeLogin</servlet-name>
     <url-pattern>/elogin</url-pattern>
   </servlet-mapping>
 
@@ -24,11 +24,11 @@
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>employeeprofile</servlet-name>
+    <servlet-name>employeeProfile</servlet-name>
     <servlet-class>Servlets.EmployeeProfile</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>employeeprofile</servlet-name>
+    <servlet-name>employeeProfile</servlet-name>
     <url-pattern>/eprofile</url-pattern>
   </servlet-mapping>
 
@@ -40,6 +40,51 @@
   <servlet-mapping>
     <servlet-name>managerLogin</servlet-name>
     <url-pattern>/mLogin</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>managerProfile</servlet-name>
+    <servlet-class>Servlets.ManagerProfile</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>managerProfile</servlet-name>
+    <url-pattern>/mprofile</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>viewEmployees</servlet-name>
+    <servlet-class>Servlets.ViewEmployees</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>viewEmployees</servlet-name>
+    <url-pattern>/viewEmp</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>pendingRequests</servlet-name>
+    <servlet-class>Servlets.PendingRequests</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>pendingRequests</servlet-name>
+    <url-pattern>/pendingReq</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>resolvedRequests</servlet-name>
+    <servlet-class>Servlets.ResolvedRequests</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>resolvedRequests</servlet-name>
+    <url-pattern>/resolvedReq</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>viewEmployeeRequests</servlet-name>
+    <servlet-class>Servlets.ViewEmployeeRequests</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>viewEmployeeRequests</servlet-name>
+    <url-pattern>/viewEmpReq</url-pattern>
   </servlet-mapping>
 
 </web-app>

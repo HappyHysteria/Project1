@@ -9,23 +9,16 @@
     <title>Document</title>
 </head>
 <body>
-<a href="mprofile">Manager Homepage</a> |
-<a href="managerReimbursement.html">Reimbursements</a>
-<a href="viewEmp">Employee List</a>
-<a href="logout">Logout</a>
+<h1>Enter Employee ID</h1>
+<form action="viewEmpReq" method="post">
 
-<h1>Reimbursement Options</h1>
+    <div class="form-group">
+        <label>Employee ID</label>
+        <input type="text" name="empID" class="form-control" />
+    </div>
 
-<a href="mprofile">Approve Request</a> |
-<br>
-<a href="managerReimbursement.html">Deny Request</a>
-<br>
-<a href="pendingReq">Pending Requests</a>
-<br>
-<a href="resolvedReq">Resolved Requests</a>
-<br>
-<a href="viewEmployeeRequests.html">View a Employee Requests</a>
+    <input type="submit" value="Search"class="btn btn-primary"/>
 
-
+</form>
 </body>
 </html>

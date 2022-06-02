@@ -21,6 +21,8 @@ public class ManagerLogin extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
+        request.getRequestDispatcher("nav.html").include(request, response);
+
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         Manager manager = new Manager();
@@ -39,6 +41,10 @@ public class ManagerLogin extends HttpServlet {
         if (result){
             out.println("you have login in");
             out.println("<br>Welcome " + username);
+            out.println("<br>");
+
+            Cookie cookie = new Cookie("username", username);
+            response.addCookie(cookie);
         } else {
             out.println("sorry invalid login");
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("/index.html");

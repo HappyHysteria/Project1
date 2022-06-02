@@ -1,16 +1,17 @@
 package ManagerInfo;
 
 import Connection.ConnectionFactory;
+import EmployeeInfo.Employee;
+import Reimbursements.ReimRequest;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ManagerDaoImplement implements ManagerDao {
     Connection connection;
 
-    public ManagerDaoImplement(){
+    public ManagerDaoImplement() {
         this.connection = ConnectionFactory.getConnection();
     }
 
@@ -21,12 +22,94 @@ public class ManagerDaoImplement implements ManagerDao {
         preparedStatement.setString(1, manager.getUsername());
         preparedStatement.setString(2, manager.getPassword());
         ResultSet resultSet = preparedStatement.executeQuery();
-        if (resultSet.next() == true){
+        if (resultSet.next() == true) {
             System.out.println("Login Successful");
             return true;
-        }else{
+        } else {
             System.out.println("Login Failed");
             return false;
         }
+    }
+
+    @Override
+    public List<Employee> viewAllEmployees() throws SQLException {
+        List<Employee> employees = new ArrayList<>();
+        String sql = "select empID, name, username from employee";
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+        while (resultSet.next()) {
+            int id = resultSet.getInt(1);
+            String name = resultSet.getString(2);
+            String username = resultSet.getString(3);
+            Employee employee = new Employee(id, name, username);
+            employees.add(employee);
+        }
+        return employees;
+    }
+
+    @Override
+    public List<ReimRequest> viewPendingRequests() throws SQLException {
+        List<ReimRequest> reimRequests = new ArrayList<>();
+        String sql = "select * from reimbursement where status = 'pending'";
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+        while (resultSet.next()) {
+            int reimID = resultSet.getInt(1);
+            int empID = resultSet.getInt(2);
+            double amount = resultSet.getDouble(3);
+            String subject = resultSet.getString(4);
+            String status = resultSet.getString(5);
+            ReimRequest reimRequest = new ReimRequest(reimID, empID, amount, subject, status);
+            reimRequests.add(reimRequest);
+        }
+        return reimRequests;
+    }
+
+    @Override
+    public List<ReimRequest> viewResolvedRequests() throws SQLException {
+        List<ReimRequest> reimRequests = new ArrayList<>();
+        String sql = "select * from reimbursement where status = 'approved' or status = 'denied'";
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+        while (resultSet.next()) {
+            int reimID = resultSet.getInt(1);
+            int empID = resultSet.getInt(2);
+            double amount = resultSet.getDouble(3);
+            String subject = resultSet.getString(4);
+            String status = resultSet.getString(5);
+            ReimRequest reimRequest = new ReimRequest(reimID, empID, amount, subject, status);
+            reimRequests.add(reimRequest);
+        }
+        return reimRequests;
+    }
+
+
+    @Override
+    public List<ReimRequest> viewEmployeeRequests(String empId) throws SQLException {
+
+        List<ReimRequest> reimRequests = new ArrayList<>();
+        String sql = "select * from reimbursement where empID = " + empId;
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+        while (resultSet.next()) {
+            int reimID = resultSet.getInt(1);
+            int empID = resultSet.getInt(2);
+            double amount = resultSet.getDouble(3);
+            String subject = resultSet.getString(4);
+            String status = resultSet.getString(5);
+            ReimRequest reimRequest = new ReimRequest(reimID, empID, amount, subject, status);
+            reimRequests.add(reimRequest);
+        }
+        return reimRequests;
+    }
+
+    @Override
+    public void approveRequest() {
+    }
+
+
+    @Override
+    public void denyRequest() {
+
     }
 }

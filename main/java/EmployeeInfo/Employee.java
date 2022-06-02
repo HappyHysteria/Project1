@@ -1,20 +1,28 @@
 package EmployeeInfo;
 
 public class Employee {
+    private int ID;
     private String name;
     private String username;
     private String password;
-    private int requestreimburse;
 
     public Employee(){
 
     }
 
-    public Employee(String name, String username, String password, int requestreimburse){
+    public Employee(int ID, String name, String username){
+        this.ID = ID;
+        this.name = name;
+        this.username = username;
+
+    }
+
+    public Employee(int ID, String name, String username, String password){
+        this.ID = ID;
         this.name = name;
         this.username = username;
         this.password = password;
-        this.requestreimburse = requestreimburse;
+
     }
 
     public String getName(){
@@ -38,19 +46,21 @@ public class Employee {
 
     public void setPassword(String password){ this.password = password; }
 
-    public int getRequestreimburse(){
-        return requestreimburse;
+    public int getID() {
+        return ID;
     }
 
-    public void setRequestreimburse(int requestreimburse){ this.requestreimburse = requestreimburse; }
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 
     @Override
     public String toString() {
-        return "EmployeeInfo.Employee{" +
-                "name='" + name + '\'' +
+        return "Employee{" +
+                "ID=" + ID +
+                ", name='" + name + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", requestreimburse=" + requestreimburse +
                 '}';
     }
 }

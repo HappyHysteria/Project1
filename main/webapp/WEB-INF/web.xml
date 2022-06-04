@@ -79,12 +79,39 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>getEmployeeRequests</servlet-name>
+    <servlet-class>Servlets.GetEmployeeRequests</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getEmployeeRequests</servlet-name>
+    <url-pattern>/getEmpReq</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>viewEmployeeRequests</servlet-name>
     <servlet-class>Servlets.ViewEmployeeRequests</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>viewEmployeeRequests</servlet-name>
     <url-pattern>/viewEmpReq</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>approveRequest</servlet-name>
+    <servlet-class>Servlets.RequestApproval</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>approveRequest</servlet-name>
+    <url-pattern>/approve</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>denyRequest</servlet-name>
+    <servlet-class>Servlets.RequestDenial</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>denyRequest</servlet-name>
+    <url-pattern>/deny</url-pattern>
   </servlet-mapping>
 
 </web-app>

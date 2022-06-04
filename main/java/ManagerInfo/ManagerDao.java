@@ -17,9 +17,9 @@ public interface ManagerDao {
 
     List<ReimRequest> viewEmployeeRequests(String empId) throws SQLException;
 
-    void approveRequest();
+    boolean approveRequest(String reimID) throws SQLException;
 
-    void denyRequest();
+    boolean denyRequest(String reimID) throws SQLException;
 
 
 }

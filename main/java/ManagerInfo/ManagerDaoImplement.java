@@ -4,6 +4,7 @@ import Connection.ConnectionFactory;
 import EmployeeInfo.Employee;
 import Reimbursements.ReimRequest;
 
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -100,16 +101,42 @@ public class ManagerDaoImplement implements ManagerDao {
             ReimRequest reimRequest = new ReimRequest(reimID, empID, amount, subject, status);
             reimRequests.add(reimRequest);
         }
-        return reimRequests;
+        if (resultSet == null){
+            return null;
+        }else{
+            return reimRequests;
+        }
     }
 
     @Override
-    public void approveRequest() {
+    public boolean approveRequest(String reimID) throws SQLException {
+        String sql = "update reimbursement set status = 'approved' where reimID = "+ reimID;
+        Statement statement = connection.createStatement();
+         int count = statement.executeUpdate(sql);
+         if (count > 0){
+             System.out.println("request updated");
+             return true;
+         }else{
+             System.out.println("something went wrong");
+             return false;
+         }
+
     }
 
 
     @Override
-    public void denyRequest() {
+    public boolean denyRequest(String reimID) throws SQLException {
+        String sql = "update reimbursement set status = 'denied' where reimID = "+ reimID;
+        Statement statement = connection.createStatement();
+        int count = statement.executeUpdate(sql);
+        if (count > 0){
+            System.out.println("request updated");
+            return true;
+        }else{
+            System.out.println("something went wrong");
+            return false;
+        }
+
 
     }
 }

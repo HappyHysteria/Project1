@@ -1,9 +1,11 @@
 package Servlets;
 
-import EmployeeInfo.Employee;
 import ManagerInfo.ManagerDao;
 import ManagerInfo.ManagerDaoFactory;
+import Reimbursements.ReimRequest;
+import org.apache.coyote.Request;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,13 +16,26 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewEmployees extends HttpServlet {
-
+public class GetEmployeeRequests extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
+        String empID = request.getParameter("empID");
+
+        ManagerDao dao = ManagerDaoFactory.getDao();
+
+        List<ReimRequest> reimRequestList = new ArrayList<>();
+
+        try {
+            reimRequestList = dao.viewEmployeeRequests(empID);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         request.getRequestDispatcher("managerNav.html").include(request, response);
+
 
         out.println("<!doctype html>");
         out.println("<html lang=\"en\">");
@@ -36,36 +51,35 @@ public class ViewEmployees extends HttpServlet {
         out.println("<table class=\"table table-bordered\">");
         out.println("<thead class=\"thead-dark\">");
         out.println("<tr>");
-        out.println("<th>ID</th>");
-        out.println("<th>Name</th>");
-        out.println("<th>Username</th>");
+        out.println("<th>Reimbursement ID</th>");
+        out.println("<th>Employee ID</th>");
+        out.println("<th>Amount</th>");
+        out.println("<th>Subject</th>");
+        out.println("<th>Status</th>");
         out.println("</tr>");
         out.println("</thead>");
         out.println("<tbody>");
 
-        List<Employee> employeeList = new ArrayList<>();
+        for (ReimRequest reimRequest : reimRequestList) {
 
-        ManagerDao dao = ManagerDaoFactory.getDao();
-        try {
-            employeeList = dao.viewAllEmployees();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        for (Employee employee : employeeList) {
             out.println("<tr>");
-            out.println("<td>" + employee.getID() + "</td>");
-            out.println("<td>" + employee.getName()+ "</td>");
-            out.println("<td>" + employee.getUsername()+ "</td>");
+            out.println("<td>" + reimRequest.getReimID() + "</td>");
+            out.println("<td>" + reimRequest.getEmpID() + "</td>");
+            out.println("<td>$" + reimRequest.getAmount() + "</td>");
+            out.println("<td>" + reimRequest.getSubject() + "</td>");
+            out.println("<td>" + reimRequest.getStatus() + "</td>");
             out.println("</tr>");
+
         }
-        out.close();
         out.println("</tbody>");
         out.println("</table>");
         out.println("</div>");
+
+        if (reimRequestList.isEmpty()){
+            out.println("No Reimbursement Requests Found");
+        }
         out.println("</body>");
         out.println("</html>");
 
     }
-
 }

@@ -6,4 +6,4 @@ The project workload was divided amongst ourselves with Jordan working on the Em
 
 We used JDBC for our database connectivity to perform all functions of the web program.
 
-Servlet classes are used for calling HTML pages with CSS styling and printing out information from the database. Due to time constraint, learning how to pull database information into HTML td tags was not possible.
+Servlet classes are used for calling HTML pages with CSS styling and printing out information from the database. Due to time constraint, learning how to pull database information into HTML file td tags was not possible.

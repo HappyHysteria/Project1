@@ -1,0 +1,36 @@
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
+        ul{
+            list-style: none;
+            background-color: darkblue;
+            padding: 10px;
+            width: 750px;
+            margin: auto;
+            margin-top: 50px;
+            border-radius: 10px;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        li{
+            display: inline-block;
+            overflow: hidden; /*stops hover background from overflowing the block*/
+        }
+
+        a{
+            text-decoration: none;
+            font-size: 45px;
+            color: white;
+            padding: 40px;
+        }
+
+        a:hover{
+            background-color: blue;
+            /* font-size: 50px;             gives a growing animation */
+            transition: .5s;
+        }
+    </style>
+<ul>
+    <li><<a href="logout">Logout</a></li>
+    <li><a href="ehome">Home</a></li>
+    <li><a href="eprofile">Employee Profile</a></li>
+</ul>

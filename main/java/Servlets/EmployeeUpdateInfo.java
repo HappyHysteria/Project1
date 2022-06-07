@@ -17,7 +17,7 @@ public class EmployeeUpdateInfo extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         Cookie[] cookies = request.getCookies();
-        String username = cookies[1].getValue();
+        String username = cookies[0].getValue();
         String password = request.getParameter("password");
 
         EmployeeDao dao = EmployeeDaoFactory.getEmployeeDao();

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,5 +15,82 @@
     <label>View Reimbursement Status</label>
     <button type="button" name="Status">Click Here</button>
 </div>
+=======
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
+        body{
+        background-color: lightblue;
+        }
+        ul{
+            list-style: none;
+            background-color: darkblue;
+            padding: 10px;
+            width: 750px;
+            margin: auto;
+            margin-top: 50px;
+            border-radius: 10px;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        li{
+            display: inline-block;
+            overflow: hidden; /*stops hover background from overflowing the block*/
+        }
+
+        label{
+            text-decoration: none;
+            font-size: 35px;
+            color: white;
+            padding: 20px;
+        }
+
+        button{
+            text-decoration: none;
+            font-size: 25px;
+            color: black;
+            padding: 10px;
+        }
+
+        button:hover{
+            background-color: rgb(108, 178, 255);
+            /* font-size: 50px;             gives a growing animation */
+            transition: .5s;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Your Profile</h1>
+<ul>
+
+<form action="einfo" method="get">
+    <li><label>View Info</label></li>
+    <li><button type="submit" name="Info">Info</button></li>
+</form>
+
+<form action="employeereimbursement.html" method="post">
+    <li><label>Request Reimbursement</label></li>
+    <li><button type="submit" name="Request">Click Here</button></li>
+</form>
+
+<form action="status" method="get">
+    <li><label>View Reimbursement Status</label></li>
+    <li><button type="submit" name="Status">Click Here</button></li>
+</form>
+
+<form action="ehome" method="get">
+    <li><label>Home</label></li>
+    <li><button type="submit" name="Home">Home</button></li>
+</form>
+</ul>
+>>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
 </body>
 </html>

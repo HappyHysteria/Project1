@@ -15,7 +15,10 @@ public class Manager {
         this.password = password;
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
     public String getUsername() {
         return username;
     }

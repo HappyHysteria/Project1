@@ -11,6 +11,7 @@ public class EmployeeProfile extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
+<<<<<<< HEAD
         request.getRequestDispatcher("nav.html").include(request, response);
         request.getRequestDispatcher("employeeprofile.html").include(request, response);
 
@@ -20,6 +21,10 @@ public class EmployeeProfile extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("username", username);
 
+=======
+        request.getRequestDispatcher("employeeprofile.html").include(request, response);
+
+>>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
         out.close();
     }
 }

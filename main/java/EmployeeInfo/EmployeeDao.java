@@ -1,11 +1,5 @@
 package EmployeeInfo;
 
-<<<<<<< HEAD
-import java.sql.SQLException;
-
-public interface EmployeeDao {
-    void login (Employee employee) throws SQLException;
-=======
 import Reimbursements.ReimRequest;
 import Reimbursements.Requests;
 
@@ -22,5 +16,4 @@ public interface EmployeeDao {
     void updateInfo(String user, String pass, HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException;
     void requestReimbursement(double reqAmount, String subject, HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException;
     List<Requests> requests(int empid, HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException;
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
 }

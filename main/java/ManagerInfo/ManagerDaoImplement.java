@@ -1,17 +1,10 @@
 package ManagerInfo;
 
-<<<<<<< HEAD
-import Connection.ConnectionFactory;
-import EmployeeInfo.Employee;
-import Reimbursements.ReimRequest;
-
-=======
 import ConnectionInfo.ConnectionFactory;
 
 import EmployeeInfo.Employee;
 import Reimbursements.ReimRequest;
 import Reimbursements.Requests;
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -20,11 +13,7 @@ import java.util.List;
 public class ManagerDaoImplement implements ManagerDao {
     Connection connection;
 
-<<<<<<< HEAD
-    public ManagerDaoImplement() {
-=======
     public ManagerDaoImplement(){
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
         this.connection = ConnectionFactory.getConnection();
     }
 
@@ -35,11 +24,7 @@ public class ManagerDaoImplement implements ManagerDao {
         preparedStatement.setString(1, manager.getUsername());
         preparedStatement.setString(2, manager.getPassword());
         ResultSet resultSet = preparedStatement.executeQuery();
-<<<<<<< HEAD
-        if (resultSet.next() == true) {
-=======
         if (resultSet.next()) {
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
             System.out.println("Login Successful");
             return true;
         } else {
@@ -65,13 +50,8 @@ public class ManagerDaoImplement implements ManagerDao {
     }
 
     @Override
-<<<<<<< HEAD
-    public List<ReimRequest> viewPendingRequests() throws SQLException {
-        List<ReimRequest> reimRequests = new ArrayList<>();
-=======
     public List<Requests> viewPendingRequests() throws SQLException {
         List<Requests> reimRequests = new ArrayList<>();
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
         String sql = "select * from reimbursement where status = 'pending'";
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
@@ -81,24 +61,15 @@ public class ManagerDaoImplement implements ManagerDao {
             double amount = resultSet.getDouble(3);
             String subject = resultSet.getString(4);
             String status = resultSet.getString(5);
-<<<<<<< HEAD
-            ReimRequest reimRequest = new ReimRequest(reimID, empID, amount, subject, status);
-=======
             Requests reimRequest = new Requests(reimID, empID, amount, subject, status);
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
             reimRequests.add(reimRequest);
         }
         return reimRequests;
     }
 
     @Override
-<<<<<<< HEAD
-    public List<ReimRequest> viewResolvedRequests() throws SQLException {
-        List<ReimRequest> reimRequests = new ArrayList<>();
-=======
     public List<Requests> viewResolvedRequests() throws SQLException {
         List<Requests> reimRequests = new ArrayList<>();
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
         String sql = "select * from reimbursement where status = 'approved' or status = 'denied'";
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
@@ -108,11 +79,7 @@ public class ManagerDaoImplement implements ManagerDao {
             double amount = resultSet.getDouble(3);
             String subject = resultSet.getString(4);
             String status = resultSet.getString(5);
-<<<<<<< HEAD
-            ReimRequest reimRequest = new ReimRequest(reimID, empID, amount, subject, status);
-=======
             Requests reimRequest = new Requests(reimID, empID, amount, subject, status);
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
             reimRequests.add(reimRequest);
         }
         return reimRequests;
@@ -120,15 +87,9 @@ public class ManagerDaoImplement implements ManagerDao {
 
 
     @Override
-<<<<<<< HEAD
-    public List<ReimRequest> viewEmployeeRequests(String empId) throws SQLException {
-
-        List<ReimRequest> reimRequests = new ArrayList<>();
-=======
     public List<Requests> viewEmployeeRequests(String empId) throws SQLException {
 
         List<Requests> reimRequests = new ArrayList<>();
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
         String sql = "select * from reimbursement where empID = " + empId;
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
@@ -138,11 +99,7 @@ public class ManagerDaoImplement implements ManagerDao {
             double amount = resultSet.getDouble(3);
             String subject = resultSet.getString(4);
             String status = resultSet.getString(5);
-<<<<<<< HEAD
-            ReimRequest reimRequest = new ReimRequest(reimID, empID, amount, subject, status);
-=======
             Requests reimRequest = new Requests(reimID, empID, amount, subject, status);
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
             reimRequests.add(reimRequest);
         }
         if (resultSet == null){
@@ -156,16 +113,6 @@ public class ManagerDaoImplement implements ManagerDao {
     public boolean approveRequest(String reimID) throws SQLException {
         String sql = "update reimbursement set status = 'approved' where reimID = "+ reimID;
         Statement statement = connection.createStatement();
-<<<<<<< HEAD
-         int count = statement.executeUpdate(sql);
-         if (count > 0){
-             System.out.println("request updated");
-             return true;
-         }else{
-             System.out.println("something went wrong");
-             return false;
-         }
-=======
         int count = statement.executeUpdate(sql);
         if (count > 0){
             System.out.println("request updated");
@@ -174,7 +121,6 @@ public class ManagerDaoImplement implements ManagerDao {
             System.out.println("something went wrong");
             return false;
         }
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
 
     }
 
@@ -191,10 +137,5 @@ public class ManagerDaoImplement implements ManagerDao {
             System.out.println("something went wrong");
             return false;
         }
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
     }
 }

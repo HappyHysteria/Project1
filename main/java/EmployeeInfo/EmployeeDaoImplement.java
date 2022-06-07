@@ -1,9 +1,5 @@
 package EmployeeInfo;
 
-<<<<<<< HEAD
-import Connection.ConnectionFactory;
-import java.sql.*;
-=======
 import ConnectionInfo.ConnectionFactory;
 import Reimbursements.Requests;
 import javax.servlet.ServletException;
@@ -16,7 +12,6 @@ import java.io.PrintWriter;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
 
 public class EmployeeDaoImplement implements EmployeeDao {
     Connection connection;
@@ -26,24 +21,14 @@ public class EmployeeDaoImplement implements EmployeeDao {
     }
 
     @Override
-<<<<<<< HEAD
-    public void login(Employee employee) throws SQLException {
-=======
     public void login(Employee employee, HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         PrintWriter out = response.getWriter();
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
         String sql = "select * from employee where username = ? && password = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, employee.getUsername());
         preparedStatement.setString(2, employee.getPassword());
         ResultSet resultSet = preparedStatement.executeQuery();
         if (resultSet.next()){
-<<<<<<< HEAD
-
-        }
-    }
-
-=======
             int id = resultSet.getInt(1);
             Cookie cookie = new Cookie("id", String.valueOf(id));
             response.addCookie(cookie);
@@ -125,5 +110,4 @@ public class EmployeeDaoImplement implements EmployeeDao {
         return requestList;
     }
 
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
 }

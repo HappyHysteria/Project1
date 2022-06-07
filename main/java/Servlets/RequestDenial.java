@@ -36,12 +36,5 @@ public class RequestDenial extends HttpServlet {
             out.println("Something went wrong try again");
         }
 
-<<<<<<< HEAD
-
-
     }
 }
-=======
-    }
-}
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7

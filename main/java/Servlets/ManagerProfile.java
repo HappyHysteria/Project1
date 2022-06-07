@@ -11,12 +11,6 @@ public class ManagerProfile extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
         Cookie[] cookies = request.getCookies();
         if (cookies != null){
             String username = cookies[0].getValue();
@@ -28,15 +22,6 @@ public class ManagerProfile extends HttpServlet {
                 request.getRequestDispatcher("/index.html").include(request, response);
             }
         }
-<<<<<<< HEAD
-
-
-
         out.close();
     }
 }
-=======
-        out.close();
-    }
-}
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7

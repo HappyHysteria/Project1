@@ -14,11 +14,7 @@ public class Logout extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-<<<<<<< HEAD
-        request.getRequestDispatcher("nav.html").include(request, response);
-=======
         request.getRequestDispatcher("index.html").include(request, response);
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
 
         Cookie cookie = new Cookie("username", "");
         response.addCookie(cookie);

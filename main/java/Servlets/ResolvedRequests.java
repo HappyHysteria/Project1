@@ -3,10 +3,7 @@ package Servlets;
 import ManagerInfo.ManagerDao;
 import ManagerInfo.ManagerDaoFactory;
 import Reimbursements.ReimRequest;
-<<<<<<< HEAD
-=======
 import Reimbursements.Requests;
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -48,11 +45,7 @@ public class ResolvedRequests extends HttpServlet {
         out.println("</thead>");
         out.println("<tbody>");
 
-<<<<<<< HEAD
-        List<ReimRequest> reimRequestList = new ArrayList<>();
-=======
         List<Requests> reimRequestList = new ArrayList<>();
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
 
         ManagerDao dao = ManagerDaoFactory.getDao();
         try {
@@ -61,17 +54,10 @@ public class ResolvedRequests extends HttpServlet {
             e.printStackTrace();
         }
 
-<<<<<<< HEAD
-        for (ReimRequest reimRequest : reimRequestList) {
-            out.println("<tr>");
-            out.println("<td>" + reimRequest.getReimID() + "</td>");
-            out.println("<td>" + reimRequest.getEmpID()+ "</td>");
-=======
         for (Requests reimRequest : reimRequestList) {
             out.println("<tr>");
             out.println("<td>" + reimRequest.getReimid() + "</td>");
             out.println("<td>" + reimRequest.getEmpid()+ "</td>");
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
             out.println("<td>$" + reimRequest.getAmount()+ "</td>");
             out.println("<td>" + reimRequest.getSubject()+ "</td>");
             out.println("<td>" + reimRequest.getStatus()+ "</td>");
@@ -86,8 +72,4 @@ public class ResolvedRequests extends HttpServlet {
         out.println("</html>");
 
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7

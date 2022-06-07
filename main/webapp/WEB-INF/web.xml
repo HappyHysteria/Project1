@@ -4,22 +4,12 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-<<<<<<< HEAD
-
-   <servlet>
-    <servlet-name>employeeLogin</servlet-name>
-    <servlet-class>Servlets.EmployeeLogin</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>employeeLogin</servlet-name>
-=======
    <servlet>
     <servlet-name>employeelogin</servlet-name>
     <servlet-class>Servlets.EmployeeLogin</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>employeelogin</servlet-name>
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
     <url-pattern>/elogin</url-pattern>
   </servlet-mapping>
 
@@ -33,16 +23,6 @@
   </servlet-mapping>
 
   <servlet>
-<<<<<<< HEAD
-    <servlet-name>employeeProfile</servlet-name>
-    <servlet-class>Servlets.EmployeeProfile</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>employeeProfile</servlet-name>
-    <url-pattern>/eprofile</url-pattern>
-  </servlet-mapping>
-
-=======
     <servlet-name>employeehome</servlet-name>
     <servlet-class>Servlets.EmployeeHome</servlet-class>
   </servlet>
@@ -95,7 +75,6 @@
     <servlet-name>status</servlet-name>
     <url-pattern>/status</url-pattern>
   </servlet-mapping>
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
 
   <servlet>
     <servlet-name>managerLogin</servlet-name>
@@ -177,8 +156,4 @@
     <servlet-name>denyRequest</servlet-name>
     <url-pattern>/deny</url-pattern>
   </servlet-mapping>
-<<<<<<< HEAD
-
-=======
->>>>>>> 0bc4995f5066b4d703fcd3bace921ad4b6e2e1d7
 </web-app>

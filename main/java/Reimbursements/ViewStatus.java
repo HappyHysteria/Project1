@@ -21,7 +21,7 @@ public class ViewStatus extends HttpServlet {
             EmployeeDao dao = EmployeeDaoFactory.getEmployeeDao();
 
             Cookie[] cookies = request.getCookies();
-            String id = cookies[1].getValue(); //converts cookie into string
+            String id = cookies[0].getValue(); //converts cookie into string
             int empid = Integer.parseInt(id); //converts string into int
 
             out.println("<!doctype html>");

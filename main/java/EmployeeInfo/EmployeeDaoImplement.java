@@ -76,7 +76,7 @@ public class EmployeeDaoImplement implements EmployeeDao {
     public void requestReimbursement(double reqAmount, String subject, HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
         PrintWriter out = response.getWriter();
         Cookie[] cookies = request.getCookies();
-        String id = cookies[1].getValue();
+        String id = cookies[0].getValue();
         int empid = Integer.parseInt(id);
 
         String sql = "insert into reimbursement (empID, amount, subject) values (?, ?, ?)";

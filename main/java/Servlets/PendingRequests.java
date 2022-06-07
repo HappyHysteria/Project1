@@ -30,6 +30,9 @@ public class PendingRequests extends HttpServlet {
         out.println("<meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">");
         out.println("<title>EmployeeList</title>");
         out.println("<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css\" integrity=\"sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn\" crossorigin=\"anonymous\">");
+        out.println("<style>");
+        out.println("body{\n" + "background-color: lightblue;\n" +"}");
+        out.println("</style>");
         out.println("</head>");
         out.println("<body>");
         out.println("<div class=\"container\">");

@@ -37,10 +37,9 @@ public class ManagerLogin extends HttpServlet {
         }
 
         if (result){
-            out.println("you have login in");
-            out.println("<br>Welcome " + username);
-            out.println("<br>");
+            out.println("Welcome " + username);
 
+            request.getRequestDispatcher("managerhome.html").include(request, response);
             request.getRequestDispatcher("managerNav.html").include(request, response);
 
             Cookie cookie = new Cookie("username", username);

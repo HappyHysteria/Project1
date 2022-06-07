@@ -16,7 +16,7 @@ public class EmployeeInfo extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         Cookie[] cookies = request.getCookies();
-        String username = cookies[1].getValue();
+        String username = cookies[0].getValue();
 
         out.println("<!doctype html>");
         out.println("<html lang=\"en\">");
